@@ -1,0 +1,236 @@
+[exhibits.html](https://github.com/user-attachments/files/30442717/exhibits.html)
+<!DOCTYPE html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exhibits Gallery | QuezonXplore</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-panel {
+        background: rgba(32, 31, 31, 0.2);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(212, 175, 55, 0.12);
+      }
+      .gold-glow:hover {
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.22);
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              background: "#131313",
+              surface: "#131313",
+              secondary: "#e9c349",
+              "on-surface": "#e5e2e1",
+              "on-surface-variant": "#c1c8c3",
+              "surface-container-low": "#1c1b1b",
+              "surface-container-high": "#2a2a2a",
+              "secondary-container": "#af8d11",
+              "on-secondary-container": "#342800",
+              "outline-variant": "#414845"
+            },
+            spacing: {
+              "margin-mobile": "20px",
+              md: "24px",
+              lg: "48px",
+              xl: "80px",
+              "container-max": "1200px",
+              gutter: "24px"
+            },
+            fontFamily: {
+              "headline-lg": ["Source Serif 4"],
+              "body-md": ["Hanken Grotesk"],
+              "label-md": ["Hanken Grotesk"]
+            },
+            fontSize: {
+              "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "600" }],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }]
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="bg-background text-on-surface selection:bg-secondary selection:text-on-secondary">
+    <nav class="sticky top-0 z-50 w-full border-b border-outline-variant/20 bg-surface/80 backdrop-blur-md">
+      <div class="mx-auto flex max-w-container-max items-center justify-between px-margin-mobile py-4 md:px-xl">
+        <a href="index.html" class="flex items-center gap-2 font-bold text-secondary">
+          <img src="images/logo.jpg" alt="QuezonXplore Logo" class="h-8 w-8 object-contain" />
+          <span class="font-headline-lg text-[20px]">QuezonXplore</span>
+        </a>
+        <div class="hidden items-center gap-4 md:flex">
+          <a class="px-4 py-2 text-on-surface-variant transition-colors hover:text-secondary" href="index.html">Home</a>
+          <a class="border-b-2 border-secondary px-4 py-2 font-semibold text-secondary" href="exhibits.html">Exhibits</a>
+          <a class="px-4 py-2 text-on-surface-variant transition-colors hover:text-secondary" href="index.html#how-it-works">How It Works</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="px-margin-mobile py-20 md:px-xl">
+        <div class="mx-auto max-w-container-max">
+          <div class="flex flex-col gap-6 rounded-3xl border border-secondary/20 bg-surface-container-low p-8 shadow-[0_0_40px_rgba(212,175,55,0.12)] md:flex-row md:items-end md:justify-between md:p-10">
+            <div class="max-w-2xl">
+              <p class="mb-3 inline-flex rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-sm font-semibold uppercase tracking-[0.25em] text-secondary">Digital Collection</p>
+              <h1 class="mb-4 font-headline-lg text-4xl text-on-surface md:text-5xl">Exhibits Gallery</h1>
+              <p class="max-w-xl text-lg text-on-surface-variant">
+                Discover a curated selection of heritage landmarks, preserved heirlooms, and immersive AR experiences from the Quezon collection.
+              </p>
+            </div>
+            <a href="index.html" class="inline-flex items-center justify-center gap-2 rounded-full border border-secondary/30 px-6 py-3 text-sm font-semibold text-secondary transition hover:bg-secondary/10">
+              <span class="material-symbols-outlined">arrow_back</span>
+              Back to Home
+            </a>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <button class="filter-btn rounded-full border border-secondary/20 bg-secondary px-4 py-2 text-sm font-semibold text-on-secondary-container" data-filter="all">All</button>
+            <button class="filter-btn rounded-full border border-secondary/20 px-4 py-2 text-sm font-semibold text-on-surface-variant transition hover:border-secondary hover:text-secondary" data-filter="museum">Museum</button>
+            <button class="filter-btn rounded-full border border-secondary/20 px-4 py-2 text-sm font-semibold text-on-surface-variant transition hover:border-secondary hover:text-secondary" data-filter="park">Park</button>
+            <button class="filter-btn rounded-full border border-secondary/20 px-4 py-2 text-sm font-semibold text-on-surface-variant transition hover:border-secondary hover:text-secondary" data-filter="historic-house">Historic House</button>
+          </div>
+
+          <div id="selectionDetail" class="mt-6 rounded-3xl border border-secondary/20 bg-surface-container-low p-6 shadow-[0_0_30px_rgba(212,175,55,0.08)]">
+            <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p class="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-secondary">Now viewing</p>
+                <h2 id="detailTitle" class="mb-2 font-headline-lg text-2xl text-on-surface">Quezon Memorial Shrine</h2>
+                <p id="detailDescription" class="max-w-2xl text-sm leading-6 text-on-surface-variant">A monumental tribute to President Manuel L. Quezon, preserved through immersive storytelling and augmented reality.</p>
+              </div>
+              <a id="detailLink" href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-secondary">Open AR Experience <span class="material-symbols-outlined">open_in_new</span></a>
+            </div>
+          </div>
+
+          <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <article class="exhibit-card group cursor-pointer overflow-hidden rounded-3xl border border-outline-variant/20 bg-surface-container-low gold-glow focus:outline-none focus:ring-2 focus:ring-secondary" data-category="museum" data-title="Quezon Memorial Shrine" data-description="A monumental tribute to President Manuel L. Quezon, preserved through immersive storytelling and augmented reality." data-link="#" tabindex="0" role="button" aria-label="View Quezon Memorial Shrine">
+              <div class="aspect-[4/5] overflow-hidden">
+                <img src="images/exhibit-1.jpg" alt="Quezon Memorial Shrine" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+              </div>
+              <div class="p-6">
+                <div class="mb-3 inline-flex rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-secondary">Museum &amp; Park</div>
+                <h2 class="mb-2 font-headline-lg text-2xl text-on-surface">Quezon Memorial Shrine</h2>
+                <p class="mb-4 text-sm leading-6 text-on-surface-variant">A monumental tribute to President Manuel L. Quezon, preserved through immersive storytelling and augmented reality.</p>
+                <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-secondary">Open AR Experience <span class="material-symbols-outlined">open_in_new</span></a>
+              </div>
+            </article>
+
+            <article class="exhibit-card group cursor-pointer overflow-hidden rounded-3xl border border-outline-variant/20 bg-surface-container-low gold-glow focus:outline-none focus:ring-2 focus:ring-secondary" data-category="museum" data-title="Presidential Car Museum" data-description="Step into the elegance of historic vehicles and discover the stories behind each preserved ride." data-link="#" tabindex="0" role="button" aria-label="View Presidential Car Museum">
+              <div class="aspect-[4/5] overflow-hidden">
+                <img src="images/exhibit-2.jpg" alt="Presidential Car Museum" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+              </div>
+              <div class="p-6">
+                <div class="mb-3 inline-flex rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-secondary">Museum</div>
+                <h2 class="mb-2 font-headline-lg text-2xl text-on-surface">Presidential Car Museum</h2>
+                <p class="mb-4 text-sm leading-6 text-on-surface-variant">Step into the elegance of historic vehicles and discover the stories behind each preserved ride.</p>
+                <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-secondary">Open AR Experience <span class="material-symbols-outlined">open_in_new</span></a>
+              </div>
+            </article>
+
+            <article class="exhibit-card group cursor-pointer overflow-hidden rounded-3xl border border-outline-variant/20 bg-surface-container-low gold-glow focus:outline-none focus:ring-2 focus:ring-secondary" data-category="historic-house" data-title="Quezon Heritage House" data-description="Explore the domestic life and craftsmanship of a heritage residence with rich historical context." data-link="#" tabindex="0" role="button" aria-label="View Quezon Heritage House">
+              <div class="aspect-[4/5] overflow-hidden">
+                <img src="images/exhibit-3.jpg" alt="Quezon Heritage House" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+              </div>
+              <div class="p-6">
+                <div class="mb-3 inline-flex rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-secondary">Historic House</div>
+                <h2 class="mb-2 font-headline-lg text-2xl text-on-surface">Quezon Heritage House</h2>
+                <p class="mb-4 text-sm leading-6 text-on-surface-variant">Explore the domestic life and craftsmanship of a heritage residence with rich historical context.</p>
+                <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-secondary">Open AR Experience <span class="material-symbols-outlined">open_in_new</span></a>
+              </div>
+            </article>
+
+            <article class="exhibit-card group cursor-pointer overflow-hidden rounded-3xl border border-outline-variant/20 bg-surface-container-low gold-glow focus:outline-none focus:ring-2 focus:ring-secondary" data-category="park" data-title="Bahay Modernismo" data-description="A modernist home design study that reflects the cultural transitions of the era." data-link="#" tabindex="0" role="button" aria-label="View Bahay Modernismo">
+              <div class="aspect-[4/5] overflow-hidden">
+                <img src="images/exhibit-2.jpg" alt="Bahay Modernismo" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+              </div>
+              <div class="p-6">
+                <div class="mb-3 inline-flex rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-secondary">Park</div>
+                <h2 class="mb-2 font-headline-lg text-2xl text-on-surface">Bahay Modernismo</h2>
+                <p class="mb-4 text-sm leading-6 text-on-surface-variant">A modernist home design study that reflects the cultural transitions of the era.</p>
+                <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-secondary">Open AR Experience <span class="material-symbols-outlined">open_in_new</span></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-outline-variant/10 bg-surface-container-low">
+      <div class="mx-auto flex max-w-container-max flex-col items-center justify-between gap-4 px-margin-mobile py-8 md:flex-row md:px-xl">
+        <div>
+          <p class="font-headline-lg text-xl text-secondary">QuezonXplore</p>
+          <p class="text-sm text-on-surface-variant">Preserving heritage through digital innovation.</p>
+        </div>
+        <div class="flex gap-4 text-sm text-on-surface-variant">
+          <a href="#" class="transition hover:text-secondary">Privacy Policy</a>
+          <a href="#" class="transition hover:text-secondary">Terms</a>
+          <a href="#" class="transition hover:text-secondary">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.exhibit-card');
+      const detailTitle = document.getElementById('detailTitle');
+      const detailDescription = document.getElementById('detailDescription');
+      const detailLink = document.getElementById('detailLink');
+
+      function setActiveFilter(activeFilter) {
+        filterButtons.forEach((button) => {
+          const isActive = button.dataset.filter === activeFilter;
+          button.classList.toggle('bg-secondary', isActive);
+          button.classList.toggle('text-on-secondary-container', isActive);
+          button.classList.toggle('text-on-surface-variant', !isActive);
+          button.classList.toggle('border-secondary', isActive);
+        });
+      }
+
+      function applyFilter(filter) {
+        cards.forEach((card) => {
+          const matches = filter === 'all' || card.dataset.category === filter;
+          card.classList.toggle('hidden', !matches);
+        });
+      }
+
+      function updateDetail(card) {
+        detailTitle.textContent = card.dataset.title;
+        detailDescription.textContent = card.dataset.description;
+        detailLink.href = card.dataset.link;
+      }
+
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const filter = button.dataset.filter;
+          setActiveFilter(filter);
+          applyFilter(filter);
+        });
+      });
+
+      cards.forEach((card) => {
+        const selectCard = () => updateDetail(card);
+        card.addEventListener('click', selectCard);
+        card.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            selectCard();
+          }
+        });
+      });
+
+      setActiveFilter('all');
+      applyFilter('all');
+      updateDetail(cards[0]);
+    </script>
+  </body>
+</html>
