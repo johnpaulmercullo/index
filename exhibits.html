@@ -58,6 +58,25 @@
           display: none !important;
         }
       }
+
+      /* Mobile-specific filter scrolling and touch improvements */
+      @media (max-width: 767px) {
+        .filters {
+          display: flex;
+          overflow-x: auto;
+          gap: 12px;
+          padding-bottom: 8px;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .filters .filter-btn {
+          flex: 0 0 auto;
+        }
+
+        .filters::-webkit-scrollbar {
+          display: none;
+        }
+      }
     </style>
     <script id="tailwind-config">
       tailwind.config = {
@@ -139,7 +158,7 @@
             </a>
           </div>
 
-          <div class="mt-8 flex flex-wrap gap-3">
+          <div class="mt-8 filters flex flex-wrap gap-3">
             <button class="filter-btn rounded-full border border-secondary/20 bg-secondary px-4 py-2 text-sm font-semibold text-on-secondary-container" data-filter="all">All</button>
             <button class="filter-btn rounded-full border border-secondary/20 px-4 py-2 text-sm font-semibold text-on-surface-variant transition hover:border-secondary hover:text-secondary" data-filter="museum">Museum</button>
             <button class="filter-btn rounded-full border border-secondary/20 px-4 py-2 text-sm font-semibold text-on-surface-variant transition hover:border-secondary hover:text-secondary" data-filter="park">Park</button>
@@ -159,7 +178,7 @@
               <article class="exhibit-card group relative cursor-pointer overflow-hidden rounded-3xl border border-outline-variant/20 bg-surface-container-low gold-glow focus:outline-none focus:ring-2 focus:ring-secondary" data-category="museum" data-key="shrine" tabindex="0" role="button" aria-label="View Quezon Memorial Shrine">
                 <div class="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-110" style="background-image: url('images/exhibit-1.jpg');"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-surface/90 via-surface/20 to-transparent"></div>
-                <div class="relative flex h-[400px] flex-col justify-end p-6">
+                <div class="relative flex h-[300px] md:h-[400px] flex-col justify-end p-6">
                   <span class="mb-2 block text-xs font-semibold uppercase tracking-[0.25em] text-secondary">Monument</span>
                   <h3 class="font-headline-lg text-2xl text-on-surface">Quezon Memorial Shrine</h3>
                 </div>
@@ -168,7 +187,7 @@
               <article class="exhibit-card group relative cursor-pointer overflow-hidden rounded-3xl border border-outline-variant/20 bg-surface-container-low gold-glow focus:outline-none focus:ring-2 focus:ring-secondary" data-category="museum" data-key="cars" tabindex="0" role="button" aria-label="View Presidential Car Museum">
                 <div class="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-110" style="background-image: url('images/exhibit-2.jpg');"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-surface/90 via-surface/20 to-transparent"></div>
-                <div class="relative flex h-[400px] flex-col justify-end p-6">
+                <div class="relative flex h-[300px] md:h-[400px] flex-col justify-end p-6">
                   <span class="mb-2 block text-xs font-semibold uppercase tracking-[0.25em] text-secondary">Automotive</span>
                   <h3 class="font-headline-lg text-2xl text-on-surface">Presidential Car Museum</h3>
                 </div>
@@ -177,7 +196,7 @@
               <article class="exhibit-card group relative cursor-pointer overflow-hidden rounded-3xl border border-outline-variant/20 bg-surface-container-low gold-glow focus:outline-none focus:ring-2 focus:ring-secondary" data-category="historic-house" data-key="house" tabindex="0" role="button" aria-label="View Quezon Heritage House">
                 <div class="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-110" style="background-image: url('images/exhibit-3.jpg');"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-surface/90 via-surface/20 to-transparent"></div>
-                <div class="relative flex h-[400px] flex-col justify-end p-6">
+                <div class="relative flex h-[300px] md:h-[400px] flex-col justify-end p-6">
                   <span class="mb-2 block text-xs font-semibold uppercase tracking-[0.25em] text-secondary">Residential</span>
                   <h3 class="font-headline-lg text-2xl text-on-surface">Quezon Heritage House</h3>
                 </div>
@@ -186,7 +205,7 @@
               <article class="exhibit-card group relative cursor-pointer overflow-hidden rounded-3xl border border-outline-variant/20 bg-surface-container-low gold-glow focus:outline-none focus:ring-2 focus:ring-secondary" data-category="park" data-key="modernismo" tabindex="0" role="button" aria-label="View Bahay Modernismo">
                 <div class="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-110" style="background-image: url('images/exhibit-2.jpg');"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-surface/90 via-surface/20 to-transparent"></div>
-                <div class="relative flex h-[400px] flex-col justify-end p-6">
+                <div class="relative flex h-[300px] md:h-[400px] flex-col justify-end p-6">
                   <span class="mb-2 block text-xs font-semibold uppercase tracking-[0.25em] text-secondary">Architectural</span>
                   <h3 class="font-headline-lg text-2xl text-on-surface">Bahay Modernismo</h3>
                 </div>
@@ -194,11 +213,7 @@
             </div>
           </div>
 
-          <section id="detail-view" class="fixed top-16 left-0 right-0 bottom-0 z-30 flex flex-col overflow-hidden bg-surface/95 backdrop-blur-md opacity-0 pointer-events-none translate-y-full exhibit-transition sm:top-20 md:top-20 md:flex-row">
-            <button class="absolute top-4 right-4 z-40 rounded-full border border-outline-variant/30 bg-surface-container-low p-3 text-on-surface transition hover:text-secondary sm:top-6 sm:right-6 md:top-6 md:right-6" onclick="closeExhibit()" aria-label="Close exhibit details">
-              <span class="material-symbols-outlined">close</span>
-            </button>
-
+          <section id="detail-view" class="fixed inset-0 z-40 flex flex-col overflow-hidden bg-surface backdrop-blur-md opacity-0 pointer-events-none translate-y-full exhibit-transition md:flex-row">
             <div class="relative h-[42vh] w-full overflow-hidden md:h-full md:w-1/2">
               <div id="detailImage" class="absolute inset-0 bg-cover bg-center exhibit-transition"></div>
               <div class="absolute inset-0 bg-gradient-to-r from-transparent to-surface md:block hidden"></div>
@@ -206,6 +221,12 @@
             </div>
 
             <div class="flex h-[58vh] w-full flex-col justify-start overflow-y-auto bg-surface px-4 py-6 sm:px-6 sm:py-8 md:h-full md:w-1/2 md:justify-center md:px-xl md:py-xl">
+              <div class="mb-6 flex justify-start">
+                <button class="inline-flex items-center gap-2 rounded-full border border-outline-variant/30 bg-surface-container-low px-4 py-2 text-sm font-semibold text-on-surface transition hover:bg-surface-container-high" onclick="closeExhibit()" aria-label="Back to exhibits">
+                  <span class="material-symbols-outlined">arrow_back</span>
+                  Back
+                </button>
+              </div>
               <div class="max-w-xl">
                 <span id="detailTag" class="mb-md block text-sm font-semibold uppercase tracking-[0.2em] text-secondary">CATEGORY</span>
                 <h3 id="detailTitle" class="mb-lg font-headline-lg text-3xl text-on-surface md:text-4xl">Exhibit Title</h3>
@@ -228,7 +249,7 @@
                   </div>
                 </div>
                 <div class="flex flex-wrap gap-md">
-                  <a href="#" class="inline-flex items-center gap-2 rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-on-secondary-container transition hover:scale-105">
+                  <a href="#" class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-on-secondary-container transition hover:scale-105">
                     <span class="material-symbols-outlined">view_in_ar</span>
                     View AR Model
                   </a>
