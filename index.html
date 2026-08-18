@@ -1,0 +1,360 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>QuezonXplore | Digital Heritage Museum</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(32, 31, 31, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .gold-glow:hover {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        .pressed-metal {
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        .vertical-accent {
+            border-left: 2px solid #D4AF37;
+        }
+        @keyframes pulsate {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+        .ar-pulse {
+            animation: pulsate 2s infinite ease-in-out;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#c4ebda",
+                      "on-tertiary-fixed": "#1c1c18",
+                      "on-secondary-container": "#342800",
+                      "surface-dim": "#131313",
+                      "background": "#131313",
+                      "secondary-container": "#af8d11",
+                      "on-secondary": "#3c2f00",
+                      "secondary": "#e9c349",
+                      "on-tertiary": "#31312c",
+                      "outline-variant": "#414845",
+                      "surface-container-highest": "#353534",
+                      "inverse-surface": "#e5e2e1",
+                      "on-primary-fixed-variant": "#2a4d41",
+                      "tertiary-container": "#262622",
+                      "inverse-on-surface": "#313030",
+                      "outline": "#8b928e",
+                      "tertiary": "#c9c6c0",
+                      "error": "#ffb4ab",
+                      "on-tertiary-fixed-variant": "#474742",
+                      "on-primary-container": "#719586",
+                      "surface-container": "#201f1f",
+                      "on-surface-variant": "#c1c8c3",
+                      "surface-variant": "#353534",
+                      "surface-container-lowest": "#0e0e0e",
+                      "inverse-primary": "#426558",
+                      "surface-container-low": "#1c1b1b",
+                      "primary-fixed-dim": "#a9cfbe",
+                      "secondary-fixed-dim": "#e9c349",
+                      "on-error-container": "#ffdad6",
+                      "primary-container": "#062c21",
+                      "secondary-fixed": "#ffe088",
+                      "on-secondary-fixed": "#241a00",
+                      "surface-container-high": "#2a2a2a",
+                      "tertiary-fixed": "#e5e2db",
+                      "surface": "#131313",
+                      "on-secondary-fixed-variant": "#574500",
+                      "surface-tint": "#a9cfbe",
+                      "on-primary-fixed": "#002117",
+                      "on-tertiary-container": "#8f8d87",
+                      "tertiary-fixed-dim": "#c9c6c0",
+                      "on-primary": "#13362b",
+                      "error-container": "#93000a",
+                      "on-background": "#e5e2e1",
+                      "primary": "#a9cfbe",
+                      "on-error": "#690005",
+                      "on-surface": "#e5e2e1",
+                      "surface-bright": "#393939"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "sm": "12px",
+                      "lg": "48px",
+                      "xl": "80px",
+                      "container-max": "1200px",
+                      "gutter": "24px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["\"Source Serif 4\""],
+                      "body-lg": ["Hanken Grotesk"],
+                      "headline-md": ["\"Source Serif 4\""],
+                      "label-sm": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "display-lg": ["\"Source Serif 4\""],
+                      "display-lg-mobile": ["\"Source Serif 4\""],
+                      "label-md": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary selection:text-on-secondary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md border-b border-outline-variant/20 shadow-sm">
+<div class="flex justify-between items-center px-margin-mobile md:px-xl py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-secondary dark:text-secondary-fixed font-bold tracking-tight"><div class="flex items-center gap-2"><img alt="QuezonXplore Logo" class="h-8 w-8 object-contain" src="images/logo.jpg"><span class="">QuezonXplore</span></div></div>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-base">
+<a class="px-4 py-2 font-body-md text-body-md text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary transition-colors duration-300" href="index.html">Home</a>
+<a class="px-4 py-2 font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="ar.html">AR Experience</a>
+<a class="px-4 py-2 font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="exhibits.html">Exhibits</a>
+<a href="ar.html" class="ml-4 bg-secondary text-on-secondary px-6 py-2 rounded-full font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all pressed-metal shadow-lg inline-flex items-center justify-center gap-2"><span class="material-symbols-outlined text-sm">photo_camera</span><span class="">Start AR Experience</span></a>
+</div>
+<!-- Mobile Menu Toggle (Mockup) -->
+<button class="md:hidden text-secondary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center brightness-[0.4] scale-105" style="background-image: url(&quot;images/hero-background.jpg&quot;);"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background"></div>
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-xl">
+<div class="max-w-2xl">
+<span class="inline-block px-3 py-1 bg-secondary/10 border border-secondary/20 text-secondary rounded-full font-label-sm text-label-sm mb-6 uppercase tracking-widest">Digital Heritage Archive</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6">
+                    Discover Quezon's <span class="text-secondary">Heritage</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed">
+                    Step into an immersive journey where physical history meets digital innovation. Experience the artifacts of Quezon in stunning 3D through our advanced AR museum interface.
+                </p>
+<div class="flex flex-col sm:flex-row gap-gutter">
+
+<a href="ar.html" class="bg-secondary text-on-secondary px-8 py-4 rounded-full font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all pressed-metal shadow-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">photo_camera</span>
+                        Start AR Experience
+                    </a>
+<a href="exhibits.html" class="border border-secondary/40 text-secondary px-8 py-4 rounded-full font-label-md text-label-md hover:bg-secondary/5 transition-all glass-panel flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">account_balance</span>
+                        Browse Exhibits
+                    </a>
+</div>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+<span class="text-label-sm font-label-sm uppercase tracking-widest">Explore</span>
+<div class="w-[1px] h-12 bg-gradient-to-b from-secondary to-transparent"></div>
+</div>
+</header>
+<!-- Featured Exhibits -->
+<section class="py-xl bg-surface">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-xl">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Featured</h2>
+<div class="w-16 h-1 bg-secondary"></div>
+</div>
+<a class="text-secondary font-label-md text-label-md flex items-center gap-2 hover:translate-x-1 transition-transform" href="exhibits.html">
+                    View All Gallery <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Exhibit Card 1: Quezon Memorial Shrine -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden glass-panel border-none gold-glow transition-all duration-500">
+<div class="aspect-[4/5] overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700" style="background-image: url(&quot;images/exhibit-1.jpg&quot;);"></div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 left-0 p-md vertical-accent m-4">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Quezon Memorial Shrine</h3>
+<p class="font-body-md text-sm text-on-surface-variant line-clamp-2 leading-relaxed opacity-90">A grand monument and final resting place dedicated to the life and legacy of President Manuel L. Quezon.</p>
+<button class="mt-4 text-secondary font-label-md text-label-md flex items-center gap-base opacity-0 group-hover:opacity-100 transition-opacity">
+                            View AR Model <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Exhibit Card 2: Presidential Car Museum -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden glass-panel border-none gold-glow transition-all duration-500">
+<div class="aspect-[4/5] overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700" style="background-image: url('images/exhibit-2.jpg')"></div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 left-0 p-md vertical-accent m-4">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Presidential Car Museum</h3>
+<p class="font-body-md text-sm text-on-surface-variant line-clamp-2 leading-relaxed opacity-90">Explore a prestigious collection of restored limousines and historic vehicles used by Philippine presidents.</p>
+<button class="mt-4 text-secondary font-label-md text-label-md flex items-center gap-base opacity-0 group-hover:opacity-100 transition-opacity">
+                            View AR Model <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Exhibit Card 3: Quezon Heritage House -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden glass-panel border-none gold-glow transition-all duration-500">
+<div class="aspect-[4/5] overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700" style="background-image: url('images/exhibit-3.jpg')"></div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 left-0 p-md vertical-accent m-4">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Quezon Heritage House</h3>
+<p class="font-body-md text-sm text-on-surface-variant line-clamp-2 leading-relaxed opacity-90">A meticulously reconstructed 1930s residence, offering a glimpse into the private life of the Commonwealth President.</p>
+<button class="mt-4 text-secondary font-label-md text-label-md flex items-center gap-base opacity-0 group-hover:opacity-100 transition-opacity">
+                            View AR Model <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Exhibit Card 4: Bahay Modernismo -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden glass-panel border-none gold-glow transition-all duration-500">
+<div class="aspect-[4/5] overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700" style="background-image: url('images/exhibit-2.jpg')"></div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 left-0 p-md vertical-accent m-4">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Bahay Modernismo</h3>
+<p class="font-body-md text-sm text-on-surface-variant line-clamp-2 leading-relaxed opacity-90">Showcasing the clean lines and innovation of mid-century modern Philippine architecture.</p>
+<button class="mt-4 text-secondary font-label-md text-label-md flex items-center gap-base opacity-0 group-hover:opacity-100 transition-opacity">
+                            View AR Model <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="py-xl bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-xl">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">How It Works</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg mx-auto">Access the past in three simple steps using your smartphone or AR-capable device.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+<!-- Connector Line (Desktop) -->
+<div class="hidden md:block absolute top-12 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-secondary/30 to-transparent"></div>
+<!-- Step 1 -->
+<div class="flex flex-col items-center text-center group">
+<div class="w-24 h-24 rounded-full bg-surface-container-high flex items-center justify-center border border-secondary/20 mb-6 group-hover:border-secondary transition-colors relative">
+<span class="material-symbols-outlined text-4xl text-secondary">qr_code_scanner</span>
+<div class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-sm">1</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Scan Marker</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Point your camera at the exhibit marker to initialize the digital link.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center text-center group">
+<div class="w-24 h-24 rounded-full bg-surface-container-high flex items-center justify-center border border-secondary/20 mb-6 group-hover:border-secondary transition-colors relative">
+<span class="material-symbols-outlined text-4xl text-secondary ar-pulse">view_in_ar</span>
+<div class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-sm">2</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">View 3D Model</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Watch as the artifact comes to life in high-definition 3D space before your eyes.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center text-center group">
+<div class="w-24 h-24 rounded-full bg-surface-container-high flex items-center justify-center border border-secondary/20 mb-6 group-hover:border-secondary transition-colors relative">
+<span class="material-symbols-outlined text-4xl text-secondary">menu_book</span>
+<div class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-sm">3</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Learn &amp; Interact</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Tap hotpots to reveal hidden stories and historical facts about each piece.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-xl py-lg max-w-container-max mx-auto gap-gutter">
+<div class="flex flex-col items-center md:items-start">
+<div class="font-headline-md text-headline-md text-secondary mb-2">QuezonXplore</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-center md:text-left">
+                    © 2024 QuezonXplore. Preserving heritage through digital innovation.
+                </p>
+</div>
+<div class="flex gap-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center py-base px-sm bg-surface-container/90 backdrop-blur-xl z-50 rounded-t-full shadow-[0_-4px_20px_rgba(212,175,55,0.15)]">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full p-2 scale-110" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-all" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="text-[10px] font-label-md">Exhibits</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-all" href="#">
+<span class="material-symbols-outlined">view_in_ar</span>
+<span class="text-[10px] font-label-md">AR Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-all" href="#">
+<span class="material-symbols-outlined">info</span>
+<span class="text-[10px] font-label-md">About</span>
+</a>
+</nav>
+<script>
+        // Simple scroll effect for navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
+        });
+
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+
+    </script>
+
+
+
+
+</body></html>
